@@ -1,0 +1,6 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+usd_rub:
+  currency_pair: 'usd_rub'
+  state: 'initial'
+

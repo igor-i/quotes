@@ -1,0 +1,7 @@
+past:
+  rate: 1
+  die_at: <%= Time.current - 1.hour %>
+
+actual:
+  rate: 1.5
+  die_at: <%= Time.current + 1.hour %>

@@ -1,0 +1,14 @@
+ru:
+  application:
+    name: Quotes
+  nav:
+    home: Home
+    admin: Admin
+  welcome:
+    index:
+      quotes: Котировки
+      last_updated_ago: 'Обновлено: %{updated_at}'
+      state: 'Текущее состояние: %{state}'
+  admin:
+    manual_rates:
+      new_manual_rate: Новый форсированный курс

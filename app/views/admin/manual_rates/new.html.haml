@@ -1,0 +1,14 @@
+.container
+
+  %h1= t('admin.manual_rates.new_manual_rate')
+
+  .card.bg-light.mb-3{ style: 'max-width: 55rem;' }
+    .card-body
+      = simple_form_for @manual_rate, url: admin_manual_rates_path, wrapper: :horizontal_form, wrapper_mappings: { datetime: :horizontal_multi_select } do |form|
+        = form.error_notification
+        = form.input :rate, input_html: { autocomplete: 'rate' }
+        = form.input :die_at
+        .form-group.row.mb-0
+          .col-sm-9.offset-sm-3
+            = form.button :submit, class: 'btn-primary'
+            = form.button :button, 'Cancel', type: 'reset', class: 'btn-outline-secondary'
