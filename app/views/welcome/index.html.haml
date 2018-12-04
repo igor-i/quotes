@@ -1,9 +1,5 @@
 .container
   %h1= t('welcome.index.quotes')
-  .card.bg-light.mb-3{ style: 'max-width: 18rem;' }
-    .card-header= @quote.currency_pair
-    .card-body
-      .card-text.display-1= @quote.current_rate&.rate
-    .card-footer
-      %small.text-muted= t('welcome.index.last_updated_ago', updated_at: @quote.current_rate&.created_at)
-      %small.text-muted= t('welcome.index.state', state: @quote.state)
+  .card.bg-light.mb-3#rate_data{ style: 'max-width: 25rem;' }
+    = render partial: 'rate', locals: @rate_data
+

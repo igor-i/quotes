@@ -24,13 +24,11 @@ ActiveRecord::Schema.define(version: 2018_12_01_154433) do
     t.string "state"
     t.string "current_rate_type"
     t.integer "current_rate_id"
-    t.integer "real_rate_id"
     t.integer "manual_rate_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["current_rate_type", "current_rate_id"], name: "index_quotes_on_current_rate_type_and_current_rate_id"
     t.index ["manual_rate_id"], name: "index_quotes_on_manual_rate_id"
-    t.index ["real_rate_id"], name: "index_quotes_on_real_rate_id"
   end
 
   create_table "real_rates", force: :cascade do |t|

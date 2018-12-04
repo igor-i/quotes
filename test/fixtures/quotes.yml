@@ -1,6 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 usd_rub:
-  currency_pair: 'usd_rub'
+  currency_pair: $LABEL
   state: 'initial'
 
+outdated_manual:
+  state: 'manual'
+  current_rate: past
+  current_rate_type: ManualRate
+  manual_rate: past
+
+actual_manual:
+  state: 'manual'
+  current_rate: actual
+  current_rate_type: ManualRate
+  manual_rate: actual

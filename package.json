@@ -1,5 +1,7 @@
 {
   "name": "quotes",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "react-actioncable-provider": "^1.0.3"
+  }
 }

@@ -13,9 +13,12 @@ class Admin::ManualRatesController < ApplicationController
     @manual_rate = ManualRate.new(params[:manual_rate].permit(:rate, :die_at))
 
     if @manual_rate.save
-      @quote.manual_rate = @manual_rate
-      @quote.current_rate = @manual_rate
-      @quote.mark_as_manual!
+      QuoteService.update_manual_rate!(@quote, @manual_rate)
+      # NOTE: вообще-то костыль, нужно только для первого запуска обновления курса
+      wait_time = @manual_rate.die_at - Time.current
+      Rails.logger.info("Create manual. wait_time: #{wait_time}")
+      QuoteService.schedule_update_real_rate(@quote, wait_time)
+
       redirect_to root_url
     else
       render :new

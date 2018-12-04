@@ -46,6 +46,7 @@ gem 'state_machines'
 gem 'state_machines-activerecord'
 gem 'enumerize'
 gem 'rails-i18n'
+gem 'gon'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -69,6 +70,7 @@ group :test do
   gem 'chromedriver-helper'
   gem 'wrong'
   gem 'minitest'
+  gem 'webmock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

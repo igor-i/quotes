@@ -15,7 +15,7 @@ class Admin::ManualRatesControllerTest < ActionDispatch::IntegrationTest
     assert { !@quote.current_rate }
     assert { !@quote.manual_rate }
 
-    new_rate = 2
+    new_rate = 20
     die_at = Time.current + 1.hour
 
     post admin_manual_rates_url(manual_rate: { rate: new_rate, die_at: die_at })
@@ -23,8 +23,8 @@ class Admin::ManualRatesControllerTest < ActionDispatch::IntegrationTest
 
     @quote.reload
     assert { @quote.manual? }
-    assert { @quote.current_rate.rate == 2 }
-    assert { @quote.manual_rate.rate == 2 }
+    assert { @quote.current_rate.rate == new_rate }
+    assert { @quote.manual_rate.rate == new_rate }
   end
 
   test '#create with past die_at must be false' do
@@ -32,7 +32,7 @@ class Admin::ManualRatesControllerTest < ActionDispatch::IntegrationTest
     assert { !@quote.current_rate }
     assert { !@quote.manual_rate }
 
-    new_rate = 2
+    new_rate = 20
     die_at = Time.current - 1.hour
 
     post admin_manual_rates_url(manual_rate: { rate: new_rate, die_at: die_at })

@@ -9,14 +9,12 @@ class Quote < ApplicationRecord
 
   belongs_to :current_rate, optional: true, polymorphic: true
   belongs_to :manual_rate, optional: true
-  belongs_to :real_rate, optional: true
 
   state_machine initial: :initial do
     state :initial
     state :updating
     state :updated do
       validates :current_rate, presence: true
-      validates :real_rate, presence: true
     end
     state :manual do
       validates :current_rate, presence: true
@@ -39,5 +37,9 @@ class Quote < ApplicationRecord
     event :archive do
       transition all => :archived
     end
+  end
+
+  def can_update?
+    !manual? || (manual_rate.die_at < Time.current)
   end
 end
