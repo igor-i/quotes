@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RealRate < ApplicationRecord
   validates :rate, presence: true
 

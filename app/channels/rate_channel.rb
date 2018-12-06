@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RateChannel < ApplicationCable::Channel
   def subscribed
     stream_from 'rate_channel'
@@ -8,6 +10,6 @@ class RateChannel < ApplicationCable::Channel
   end
 
   def update(rate_data)
-    ActionCable.server.broadcast "rate_channel", rate: rate_data['rate']
+    ActionCable.server.broadcast 'rate_channel', rate: rate_data['rate']
   end
 end

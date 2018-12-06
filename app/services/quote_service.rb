@@ -4,7 +4,7 @@ class QuoteService
   require 'open-uri'
   require 'json'
 
-  CBR_URL = 'https://www.cbr-xml-daily.ru/daily_json.js'.freeze
+  CBR_URL = 'https://www.cbr-xml-daily.ru/daily_json.js'
   RUN_EVERY = 1.minute
 
   class << self
@@ -25,12 +25,12 @@ class QuoteService
     def update_real_rate!(quote)
       new_quote = Quote.find(quote.id)
 
-      if (new_quote.current_rate != quote.current_rate)
+      if new_quote.current_rate != quote.current_rate
         Rails.logger.info("Updated rates from CBR is not required at #{Time.current} (outdated job)")
         return
       end
 
-      unless (new_quote.can_update?)
+      unless new_quote.can_update?
         Rails.logger.info("Updated rates from CBR is not required at #{Time.current} (duration of the manual course)")
         return
       end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::ManualRatesController < ApplicationController
   before_action do
     @quote = Quote.find_or_initialize_by(currency_pair: :usd_rub)
