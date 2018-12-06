@@ -48,6 +48,7 @@ gem 'enumerize'
 gem 'rails-i18n'
 gem 'webpacker', '~> 3.5'
 gem 'active_model_serializers'
+gem 'foreman'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
