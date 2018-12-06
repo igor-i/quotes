@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc:
 class QuoteSerializer < ActiveModel::Serializer
   attributes :id, :currency_pair, :current_rate, :state
 

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc:
 class NewRateBroadcastJob < ApplicationJob
   queue_as :default
 

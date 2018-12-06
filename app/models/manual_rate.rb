@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc:
 class ManualRate < ApplicationRecord
   validates :rate, presence: true
   validates :die_at, presence: true

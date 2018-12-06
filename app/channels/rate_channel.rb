@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc:
 class RateChannel < ApplicationCable::Channel
   def subscribed
     stream_from 'rate_channel'
