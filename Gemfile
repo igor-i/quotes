@@ -46,7 +46,8 @@ gem 'state_machines'
 gem 'state_machines-activerecord'
 gem 'enumerize'
 gem 'rails-i18n'
-gem 'gon'
+gem 'webpacker', '~> 3.5'
+gem 'active_model_serializers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

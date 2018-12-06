@@ -14,7 +14,8 @@ class Admin::ManualRatesController < ApplicationController
 
     if @manual_rate.save
       QuoteService.update_manual_rate!(@quote, @manual_rate)
-      # NOTE: вообще-то костыль, нужно только для первого запуска обновления курса
+
+      # NOTE: вообще-то это костыль, нужно только для первого запуска автоматического обновления курса
       wait_time = @manual_rate.die_at - Time.current
       Rails.logger.info("Create manual. wait_time: #{wait_time}")
       QuoteService.schedule_update_real_rate(@quote, wait_time)

@@ -13,6 +13,7 @@ class QuoteService
       quote.current_rate = manual_rate
       quote.mark_as_manual!
 
+      NewRateBroadcastJob.perform_later(quote)
       Rails.logger.info("Manual updated rates at #{Time.current}")
     end
 
@@ -45,14 +46,7 @@ class QuoteService
       new_quote.current_rate = new_real_rate
       new_quote.finish_update!
 
-      rate_data = {
-        currency_pair: quote.currency_pair,
-        rate: quote.current_rate&.rate,
-        updated_at: quote.current_rate&.created_at.to_s,
-        state: quote.state
-      }
-
-      NewRateBroadcastJob.perform_later(rate_data)
+      NewRateBroadcastJob.perform_later(new_quote)
       Rails.logger.info("Finished update rates from CBR at #{Time.current}")
 
       schedule_update_real_rate(new_quote)
