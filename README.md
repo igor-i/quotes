@@ -1,5 +1,9 @@
 # README
 
+## Setup
+
+     $ make setup
+
 ## Start
 
      $ make start
