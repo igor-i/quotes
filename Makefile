@@ -1,5 +1,6 @@
 .PHONY: test log
 start:
+	bin/rails db:migrate
 	bin/rails server
 test:
 	bin/rails test
