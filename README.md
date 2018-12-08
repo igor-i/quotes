@@ -6,8 +6,8 @@
 
 ## Start
 
-     $ make start
+     $ foreman start
 
 ## Usage
 
-http://localhost:3000
+http://localhost:5000
